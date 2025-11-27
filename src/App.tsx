@@ -7,13 +7,14 @@ import { RouterProvider } from 'react-router'
 import Contact from './components/contact/Contact'
 import Registration from './components/auth/registration'
 import { Admindashboard } from './components/Admin dashboard/Aside/Aside/Dashboard'
-import LandingPage from './components/Landingpage'
+import Landing from './components/Landing'
+
 
 function App() {
   const router = createBrowserRouter([
     {
      path: '/',
-     element: <LandingPage />
+     element: <Landing/>
     },
     // {
     //   path: '/about',
