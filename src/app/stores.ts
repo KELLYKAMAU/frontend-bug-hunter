@@ -1,6 +1,6 @@
 import { persistReducer } from "redux-persist";
 import { persistStore as createPersistStore } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import storage from "redux-persist/es/storage"; // defaults to localStorage for web
 import { usersAPI } from "../features/auth/usersAPI";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 

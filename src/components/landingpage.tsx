@@ -1,4 +1,4 @@
-import { Navigation } from "../components/nav/Navigation";
+import { Navigation } from "./nav/Navigation";
 // import logo from "../assets/logo.png";
 import backgroundImage from "../assets/back2.png";
 
