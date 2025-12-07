@@ -1,6 +1,7 @@
 import { Navigation } from "./nav/Navigation";
 // import logo from "../assets/logo.png";
 import backgroundImage from "../assets/back2.png";
+import { Footer } from "./nav/MyFooter";
 
 export default function Landing() {
     return (
@@ -85,14 +86,16 @@ Thanks to smart notifications and beautifully designed dashboards,
              streamlined issue management makes.
          
           </p>
-          <div className="card-actions justify-end mt-4 flex flex-col sm:flex-row gap-2">
+          {/* <div className="card-actions justify-end mt-4 flex flex-col sm:flex-row gap-2">
             <button className="btn btn-primary btn-sm sm:btn-md">Get Started</button>
             <button className="btn btn-outline btn-sm sm:btn-md">Learn More</button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
   </div>
+
+  <Footer/>
 </div>
 
     );

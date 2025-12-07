@@ -1,48 +1,60 @@
-import './App.css'
-import UserLogin from './components/auth/Userlogin'
-import { createBrowserRouter } from 'react-router'
-import { RouterProvider } from 'react-router'
-
-// import About from './components/'
-import Contact from './components/contact/Contact'
-import Registration from './components/auth/registration'
-import { Admindashboard } from './components/Admin dashboard/Aside/Aside/Dashboard'
-import Landing from './components/Landing'
-
+import "./App.css";
+import UserLogin from "./components/auth/Userlogin";
+import Contact from "./components/contact/Contact";
+import Registration from "./components/auth/registration";
+import { Admindashboard } from "./components/Admin dashboard/Aside/Aside/Dashboard";
+import Landing from "./components/Landing";
+import UserDashboard from "./components/user/UserDashboard";
+import About from "./components/static/About";
+import Services from "./components/static/Services";
+import { ProtectedRoute } from "./components/routing/ProtectedRoute";
+import { createBrowserRouter, RouterProvider } from "react-router";
 
 function App() {
   const router = createBrowserRouter([
     {
-     path: '/',
-     element: <Landing/>
-    },
-    // {
-    //   path: '/about',
-    //   element: <About />
-    // },
-    {
-      path: '/contact',
-      element: <Contact />
+      path: "/",
+      element: <Landing />,
     },
     {
-      path: '/userLogin',
-      element: <UserLogin />
+      path: "/contact",
+      element: <Contact />,
     },
     {
-      path: '/register',
-      element: <Registration />
+      path: "/about",
+      element: <About />,
     },
     {
-      path: '/admin/dashboard',
-      element: <Admindashboard />
-    }
-  ])
+      path: "/services",
+      element: <Services />,
+    },
+    {
+      path: "/userLogin",
+      element: <UserLogin />,
+    },
+    {
+      path: "/register",
+      element: <Registration />,
+    },
+    {
+      path: "/admin/dashboard",
+      element: (
+        <ProtectedRoute allowedRoles={["admin"]}>
+          <Admindashboard />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "/user/dashboard",
+      element: (
+        <ProtectedRoute allowedRoles={["admin", "developer", "tester"]}>
+          <UserDashboard />
+        </ProtectedRoute>
+      ),
+    },
+  ]);
 
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

@@ -23,9 +23,9 @@ export const Navigation = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/bugs">Bugs</NavLink></li>
-            <li><NavLink to="/projects">Projects</NavLink></li>
-            <li><NavLink to="/comments">Comments</NavLink></li>
+            <li><NavLink to="/about">About</NavLink></li>
+            <li><NavLink to="/services">Services</NavLink></li>
+            <li><NavLink to="/contact">Contact</NavLink></li>
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">Bug Hunter</a>
@@ -33,13 +33,18 @@ export const Navigation = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li><NavLink to="/">Home</NavLink></li>
-          <li><NavLink to="/bugs">Bugs</NavLink></li>
-          <li><NavLink to="/projects">Projects</NavLink></li>
-          <li><NavLink to="/comments">Comments</NavLink></li>
+          <li><NavLink to="/about">About</NavLink></li>
+          <li><NavLink to="/services">Services</NavLink></li>
+          <li><NavLink to="/contact">Contact</NavLink></li>
         </ul>
       </div>
-      <div className="navbar-end">
-        <NavLink to="/userLogin" className="btn">Login</NavLink>
+      <div className="navbar-end space-x-2">
+        <NavLink to="/userLogin" className="btn btn-primary btn-sm sm:btn-md">
+          Login
+        </NavLink>
+        <NavLink to="/register" className="btn btn-outline btn-sm sm:btn-md">
+          Register
+        </NavLink>
       </div>
     </div>
   )
