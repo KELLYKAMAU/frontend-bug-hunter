@@ -1,4 +1,5 @@
-import React, { FormEvent, useState } from "react";
+import React, { useState } from "react";
+import type { FormEvent } from "react";
 import { useNavigate } from "react-router";
 import { useLoginUserMutation } from "../../features/auth/usersAPI";
 import { useDispatch } from "react-redux";

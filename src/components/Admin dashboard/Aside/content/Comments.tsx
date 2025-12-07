@@ -10,7 +10,6 @@ import {
 import { useSelector } from 'react-redux';
 
 type TComment = {
-  commentid?: number;
   bugid: number;
   userid: number;
   content: string;
@@ -37,8 +36,8 @@ export default function Comments() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      if (editingComment && editingComment.commentid) {
-        await updateComment({ id: editingComment.commentid, comment: formData }).unwrap();
+      if (editingComment && editingComment.bugid) {
+        await updateComment({ id: editingComment.bugid, comment: formData }).unwrap();
         setEditingComment(null);
       } else {
         await createComment({ ...formData, userid: currentUserId }).unwrap();
@@ -106,10 +105,11 @@ export default function Comments() {
             <h2 className="card-title">{editingComment ? 'Edit Comment' : 'Add a Comment'}</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="form-control">
-                <label className="label">
+                <label className="label" htmlFor="bugid">
                   <span className="label-text">Bug ID *</span>
                 </label>
                 <select
+                  id="bugid"
                   className="select select-bordered"
                   value={formData.bugid}
                   onChange={(e) => setFormData({ ...formData, bugid: parseInt(e.target.value) })}

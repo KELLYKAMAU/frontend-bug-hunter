@@ -8,16 +8,19 @@ import {
 import { useSelector } from 'react-redux';
 
 type TProject = {
+  id: number;
   projectid?: number;
-  title: string;
-  description?: string;
-  status?: 'active' | 'on-hold' | 'completed' | 'archived';
+  userid: number;
+  role_in_project : string;
+  status: 'active' | 'on-hold' | 'completed' | 'archived';
 };
 
 export default function Projects() {
   const [formData, setFormData] = useState<TProject>({
-    title: '',
-    description: '',
+    id: 0,
+    projectid: 0,
+    role_in_project: 'string',
+    userid: 0,
     status: 'active',
   });
   const [editingProject, setEditingProject] = useState<TProject | null>(null);
@@ -38,9 +41,11 @@ export default function Projects() {
         await createProject(formData).unwrap();
       }
       setFormData({
-        title: '',
-        description: '',
-        status: 'active',
+       id: 0,
+    projectid: 0,
+    role_in_project: '',
+    userid: 0,
+    status: 'active',
       });
       refetch();
     } catch (error: any) {
@@ -52,9 +57,11 @@ export default function Projects() {
   const handleEdit = (project: TProject) => {
     setEditingProject(project);
     setFormData({
-      title: project.title || '',
-      description: project.description || '',
+      id: project.id || 0,
+      projectid: project.projectid|| 0,
       status: project.status || 'active',
+      role_in_project: project.role_in_project || '',
+      userid: project.userid || 0,
     });
   };
 
@@ -87,8 +94,8 @@ export default function Projects() {
                   type="text"
                   placeholder="Enter project name"
                   className="input input-bordered"
-                  value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  value={formData.id}
+                  onChange={(e) => setFormData({ ...formData, id: e.target.value })}
                   required
                 />
               </div>
@@ -99,8 +106,8 @@ export default function Projects() {
                 <textarea
                   className="textarea textarea-bordered"
                   placeholder="Project description"
-                  value={formData.description}
-                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                  value={formData.projectid}
+                  onChange={(e) => setFormData({ ...formData, projectid: e.target.value })}
                   rows={4}
                 />
               </div>
@@ -136,9 +143,11 @@ export default function Projects() {
                     onClick={() => {
                       setEditingProject(null);
                       setFormData({
-                        title: '',
-                        description: '',
-                        status: 'active',
+                       id: 0,
+                  projectid: 0,
+                   role_in_project: '',
+                   userid: 0,
+                 status: 'active',
                       });
                     }}
                   >

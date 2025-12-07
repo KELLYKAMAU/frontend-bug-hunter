@@ -58,12 +58,15 @@ export default function Bugs() {
         await createBug(formData).unwrap();
       }
       setFormData({
-        title: '',
+        bugid: undefined,
+        title:'string',
+        assigned_to: null,
         description: '',
         severity: 'low',
         project_id: 0,
         reported_by: currentUserId,
         status: 'open',
+        updated_at: undefined,
       });
       refetch();
     } catch (error: any) {
