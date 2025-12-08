@@ -11,7 +11,7 @@ type FormValues = {
   first_name: string
   last_name: string,
   email: string;
-  // role_user: string;
+  role_user: string;
   password: string;
   confirmPassword: string;
 };
@@ -22,7 +22,7 @@ const Registration: React.FC = () => {
     last_name: yup.string().min(3, 'Min 3 characters').max(100, 'Max 100 characters').required('Lastname is required'),
     email: yup.string().email('Invalid email').required('Email is required'),
     password: yup.string().min(8, 'Min 8 characters').required('Password is required'),
-    // role_user: yup.string().required('Role is required'),
+    role_user: yup.string().required('Role is required'),
     confirmPassword: yup.string().oneOf([yup.ref('password')], 'Passwords must match').required('Confirm password is required'),
   });
 
@@ -109,16 +109,16 @@ const Registration: React.FC = () => {
                 {errors.password && <span className="text-red-500 text-sm">{errors.password.message}</span>}
               </div>
               <div className="form-control">
-                {/* <label className="label"> */}
-                  {/* <span className="label-text">Role</span> */}
-                {/* </label> */}
-                {/* <input
+                <label className="label">
+                  <span className="label-text">Role</span>
+                </label>
+                <input
                   type="text"
                   {...register("role_user")}
                   placeholder="Enter your role"
-                  className="input input-bordered w-full" */}
-                {/* /> */}
-                {/* {errors.role_user && <span className="text-red-500 text-sm">{errors.role_user.message}</span>} */}
+                  className="input input-bordered w-full"
+                />
+                {errors.role_user && <span className="text-red-500 text-sm">{errors.role_user.message}</span>}
               </div>
               <div className="form-control">
                 <label className="label">

@@ -9,6 +9,9 @@ import About from "./components/static/About";
 import Services from "./components/static/Services";
 import { ProtectedRoute } from "./components/routing/ProtectedRoute";
 import { createBrowserRouter, RouterProvider } from "react-router";
+import Bugs from "./components/bugs/Bugs";
+import Projects from "./components/projects/Projects";
+import Comments from "./components/comments/Comments";
 
 function App() {
   const router = createBrowserRouter([
@@ -31,6 +34,22 @@ function App() {
     {
       path: "/userLogin",
       element: <UserLogin />,
+    },
+     {
+      path: "/bugs",
+      element: <Bugs/>,
+    },
+     {
+      path: "/projects",
+      element: <Projects />,
+    },
+     {
+      path: "/userLogin",
+      element: <UserLogin />,
+    },
+     {
+      path: "/comments",
+      element: <Comments/>,
     },
     {
       path: "/register",

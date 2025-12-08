@@ -8,19 +8,16 @@ import {
 import { useSelector } from 'react-redux';
 
 type TProject = {
-  id: number;
   projectid?: number;
-  userid: number;
-  role_in_project : string;
-  status: 'active' | 'on-hold' | 'completed' | 'archived';
+  title: string;
+  description?: string;
+  status?: 'active' | 'on-hold' | 'completed' | 'archived';
 };
 
 export default function Projects() {
   const [formData, setFormData] = useState<TProject>({
-    id: 0,
-    projectid: 0,
-    role_in_project: 'string',
-    userid: 0,
+    title: '',
+    description: '',
     status: 'active',
   });
   const [editingProject, setEditingProject] = useState<TProject | null>(null);
@@ -41,11 +38,9 @@ export default function Projects() {
         await createProject(formData).unwrap();
       }
       setFormData({
-       id: 0,
-    projectid: 0,
-    role_in_project: '',
-    userid: 0,
-    status: 'active',
+        title: '',
+        description: '',
+        status: 'active',
       });
       refetch();
     } catch (error: any) {
@@ -57,11 +52,9 @@ export default function Projects() {
   const handleEdit = (project: TProject) => {
     setEditingProject(project);
     setFormData({
-      id: project.id || 0,
-      projectid: project.projectid|| 0,
+      title: project.title || '',
+      description: project.description || '',
       status: project.status || 'active',
-      role_in_project: project.role_in_project || '',
-      userid: project.userid || 0,
     });
   };
 
@@ -94,8 +87,8 @@ export default function Projects() {
                   type="text"
                   placeholder="Enter project name"
                   className="input input-bordered"
-                  value={formData.id}
-                  onChange={(e) => setFormData({ ...formData, id: e.target.value })}
+                  value={formData.title}
+                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                   required
                 />
               </div>
@@ -106,8 +99,8 @@ export default function Projects() {
                 <textarea
                   className="textarea textarea-bordered"
                   placeholder="Project description"
-                  value={formData.projectid}
-                  onChange={(e) => setFormData({ ...formData, projectid: e.target.value })}
+                  value={formData.description}
+                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   rows={4}
                 />
               </div>
@@ -143,11 +136,9 @@ export default function Projects() {
                     onClick={() => {
                       setEditingProject(null);
                       setFormData({
-                       id: 0,
-                  projectid: 0,
-                   role_in_project: '',
-                   userid: 0,
-                 status: 'active',
+                        title: '',
+                        description: '',
+                        status: 'active',
                       });
                     }}
                   >
@@ -189,10 +180,10 @@ export default function Projects() {
                             {(project.status || 'active').replace('-', ' ').toUpperCase()}
                           </span>
                         </div>
-                        <div className="card-actions justify-end">
+                        {/* <div className="card-actions justify-end">
                           <button
                             className="btn btn-sm btn-outline"
-                            onClick={() => handleEdit(project)}
+                            onClick={() => handleEdit(projects)}
                           >
                             View
                           </button>
@@ -202,7 +193,7 @@ export default function Projects() {
                           >
                             Edit
                           </button>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   ))

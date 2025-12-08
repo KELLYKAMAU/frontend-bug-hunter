@@ -19,6 +19,7 @@ export type TProject = {
   project_name?: string;
   title?: string;
   description?: string;
+  status?:string;
 };
 
 export type TComment = {
