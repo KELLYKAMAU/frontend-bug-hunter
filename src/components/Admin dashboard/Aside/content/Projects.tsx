@@ -3,7 +3,7 @@ import { Navigation } from '../../../nav/Navigation';
 import {
   useGetProjectsQuery,
   useCreateProjectMutation,
-  useUpdateBugMutation,
+  // useUpdateBugMutation,
 } from '../../../../features/api/bugsProjectsCommentsAPI';
 import { useSelector } from 'react-redux';
 
@@ -25,7 +25,7 @@ export default function Projects() {
   const { data: projects = [], isLoading: projectsLoading, error: projectsError, refetch } = useGetProjectsQuery();
   const [createProject, { isLoading: creating }] = useCreateProjectMutation();
 
-  const authState = useSelector((state: any) => state.auth);
+  // const authState = useSelector((state: any) => state.auth);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,14 +49,14 @@ export default function Projects() {
     }
   };
 
-  const handleEdit = (project: TProject) => {
-    setEditingProject(project);
-    setFormData({
-      title: project.title || '',
-      description: project.description || '',
-      status: project.status || 'active',
-    });
-  };
+  // const handleEdit = (project: TProject) => {
+  //   setEditingProject(project);
+  //   setFormData({
+  //     title: project.title || '',
+  //     description: project.description || '',
+  //     status: project.status || 'active',
+  //   });
+  // };
 
   const getStatusBadge = (status?: string) => {
     const badges: Record<string, string> = {
