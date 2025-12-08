@@ -5,7 +5,7 @@ import {
   useCreateProjectMutation,
   // useUpdateBugMutation,
 } from '../../../../features/api/bugsProjectsCommentsAPI';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 type TProject = {
   projectid?: number;
