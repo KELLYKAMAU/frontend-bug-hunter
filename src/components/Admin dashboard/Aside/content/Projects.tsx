@@ -8,7 +8,7 @@ import {
 // import { useSelector } from 'react-redux';
 
 type TProject = {
-  projectid?: number;
+  project_id?: number;
   title: string;
   description?: string;
   status?: 'active' | 'on-hold' | 'completed' | 'archived';
@@ -30,7 +30,7 @@ export default function Projects() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      if (editingProject && editingProject.projectid) {
+      if (editingProject && editingProject.project_id) {
         // Update would need updateProject mutation - for now just create
         alert('Update functionality coming soon');
         setEditingProject(null);
@@ -168,9 +168,9 @@ export default function Projects() {
                   </div>
                 ) : (
                   projects.map((project) => (
-                    <div key={project.projectid} className="card bg-base-200 shadow-md">
+                    <div key={project.project_id} className="card bg-base-200 shadow-md">
                       <div className="card-body">
-                        <h3 className="card-title text-lg">{project.title || project.project_name || `Project ${project.projectid}`}</h3>
+                        <h3 className="card-title text-lg">{project.title || project.project_name || `Project ${project.project_id}`}</h3>
                         <p className="text-sm line-clamp-3">
                           {project.description || 'No description available'}
                         </p>

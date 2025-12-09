@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 
 type TBug = {
   bugid?: number;
-  project_id: number;
+  project_id: any;
   reported_by: number;
   assigned_to?: number | null;
   title: string;
@@ -27,7 +27,7 @@ export default function Bugs() {
     title: '',
     description: '',
     severity: 'low',
-    project_id: 0,
+    project_id: '',
     reported_by: 0,
     status: 'open',
   });
@@ -63,7 +63,7 @@ export default function Bugs() {
         assigned_to: null,
         description: '',
         severity: 'low',
-        project_id: 0,
+        project_id: '',
         reported_by: currentUserId,
         status: 'open',
         updated_at: undefined,
@@ -215,8 +215,8 @@ export default function Bugs() {
                 >
                   <option value={0}>Select project</option>
                   {projects.map((project) => (
-                    <option key={project.projectid} value={project.projectid}>
-                      {project.title || project.project_name || `Project ${project.projectid}`}
+                    <option key={project.project_id} value={project.project_id}>
+                      {project.title || project.project_name || `Project ${project.project_id}`}
                     </option>
                   ))}
                 </select>
@@ -239,7 +239,7 @@ export default function Bugs() {
                         title: '',
                         description: '',
                         severity: 'low',
-                        project_id: 0,
+                        project_id: '',
                         reported_by: currentUserId,
                         status: 'open',
                       });
@@ -275,6 +275,7 @@ export default function Bugs() {
                       <th>Status</th>
                       <th>Project ID</th>
                       <th>Actions</th>
+                      <th>ProjectID</th>
                     </tr>
                   </thead>
                   <tbody>

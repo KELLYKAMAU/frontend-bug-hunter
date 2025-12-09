@@ -3,7 +3,7 @@ import { apidomain } from "../../utils/APIdomains";
 
 export type TBug = {
   bugid?: number;
-  project_id: number;
+  project_id: any;
   reported_by: number;
   assigned_to?: number | null;
   title: string;
@@ -15,7 +15,7 @@ export type TBug = {
 };
 
 export type TProject = {
-  projectid: number;
+  project_id: any;
   project_name?: string;
   title?: string;
   description?: string;
