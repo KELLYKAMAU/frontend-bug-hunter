@@ -27,7 +27,7 @@ export default function Bugs() {
     title: '',
     description: '',
     severity: 'low',
-    project_id: '',
+     project_id: null as number | null,
     reported_by: 0,
     status: 'open',
   });
@@ -198,28 +198,39 @@ export default function Bugs() {
                     <option value="open">Open</option>
                     <option value="in_progress">In Progress</option>
                     <option value="resolved">Resolved</option>
-                    <option value="closed">Closed</option>
+                    <option value="closed">closed</option>
                   </select>
                 </div>
               </div>
               <div className="form-control">
                 <label className="label" htmlFor="project">
-                  <span className="label-text">Project *</span>
+                  <span className="label-text">Project ID*</span>
                 </label>
-                <select
-                  id="project"
-                  className="select select-bordered"
-                  value={formData.project_id}
-                  onChange={(e) => setFormData({ ...formData, project_id: parseInt(e.target.value) })}
-                  required
-                >
-                  <option value={0}>Select project</option>
-                  {projects.map((project) => (
-                    <option key={project.project_id} value={project.project_id}>
-                      {project.title || project.project_name || `Project ${project.project_id}`}
-                    </option>
-                  ))}
-                </select>
+   <select
+  id="project_id"
+  className="select select-bordered"
+  value={formData.project_id ?? ''} // guard
+  onChange={(e) =>
+    setFormData({
+      ...formData,
+      project_id: e.target.value, // keep string
+    })
+  }
+  required
+>
+  <option value="">Select project</option>
+
+  {projects.map((project) => (
+    <option
+      key={project.project_id}
+      value={String(project.project_id)} // FORCE string
+    >
+      {project.title || `Project ${project.project_id}`}
+    </option>
+  ))}
+</select>
+
+
               </div>
               <div className="flex gap-2">
                 <button

@@ -18,6 +18,7 @@ describe('Authentication Flow', () => {
     cy.get('input[name="last_name"]').type('Doe')
     cy.get('input[name="email"]').type(email)
     cy.get('input[name="password"]').type('TestPassword123!')
+    cy.get('input[name="role_user"]').type('tester')
     cy.get('input[name="confirmPassword"]').type('TestPassword123!')
     cy.get('button[type="submit"]').click()
     
@@ -34,8 +35,8 @@ describe('Authentication Flow', () => {
 
   it('should login with valid credentials', () => {
     cy.visit('/userLogin')
-    cy.get('input[name="email"]').type('test@example.com')
-    cy.get('input[name="password"]').type('password123')
+    cy.get('input[name="email"]').type('kamaukelly7911@gmail.com')
+    cy.get('input[name="password"]').type('12345678')
     cy.get('button[type="submit"]').click()
     
     // After login, should redirect to dashboard

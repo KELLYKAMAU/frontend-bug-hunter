@@ -52,10 +52,10 @@ export default function Bugs() {
                                     <span className="label-text">Project</span>
                                 </label>
                                 <select className="select select-bordered">
-                                    <option disabled selected>Select project</option>
-                                    <option>Project A</option>
-                                    <option>Project B</option>
-                                    <option>Project C</option>
+                                    <option disabled selected>Select project ID</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
                                 </select>
                             </div>
                             <button type="submit" className="btn btn-primary">Submit Bug</button>
@@ -95,7 +95,7 @@ export default function Bugs() {
                                         <th>2</th>
                                         <td>API Error</td>
                                         <td><span className="badge badge-error">High</span></td>
-                                        <td><span className="badge badge-success">Closed</span></td>
+                                        <td><span className="badge badge-success">closed</span></td>
                                         <td>Project B</td>
                                         <td>
                                             <button className="btn btn-sm btn-outline">Edit</button>

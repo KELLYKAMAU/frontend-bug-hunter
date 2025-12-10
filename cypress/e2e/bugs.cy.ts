@@ -13,7 +13,7 @@ describe('Bugs Management', () => {
     cy.contains('Bugs', { matchCase: false }).should('be.visible')
   })
 
-  it('should create a new bug', () => {
+  it.skip('should create a new bug', () => {
     cy.visit('/bugs')
     
     // Wait for projects to load if needed

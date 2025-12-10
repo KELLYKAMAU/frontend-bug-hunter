@@ -22,7 +22,7 @@ const UserDashboard = () => {
     isError: commentsError,
   } = useGetCommentsQuery();
 
-  const openBugsCount = bugs?.filter((b) => b.status !== "Closed").length ?? 0;
+  const openBugsCount = bugs?.filter((b) => b.status !=="closed").length ?? 0;
   const projectsCount = projects?.length ?? 0;
   const commentsCount = comments?.length ?? 0;
 

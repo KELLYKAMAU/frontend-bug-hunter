@@ -19,8 +19,9 @@ export const Admindashboard = () => {
   const stats = {
     totalBugs: bugs.length,
     openBugs: bugs.filter(b => b.status === 'open').length,
-    inProgressBugs: bugs.filter(b => b.status === 'in_progress').length,
-    resolvedBugs: bugs.filter(b => b.status === 'resolved' || b.status === 'closed').length,
+    in_progressBugs: bugs.filter(b => b.status === 'in_progress').length,
+    resolvedBugs: bugs.filter(b => b.status === 'resolved' ).length,
+    closedBugs: bugs.filter(b => b.status === 'closed').length,
     totalProjects: projects.length,
     activeProjects: projects.filter(p => (p.status as any) === 'active').length,
     totalComments: comments.length,
