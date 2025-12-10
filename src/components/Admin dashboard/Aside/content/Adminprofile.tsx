@@ -1,4 +1,5 @@
-import me2 from "C:/Users/kamau/Bug_Tracking_Sys/BUG-HUNTER/src/assets/me2.jpg";
+
+import me2 from "src/assets/me2.jpg";
 
 export default function AdminProfile() {
     return (
