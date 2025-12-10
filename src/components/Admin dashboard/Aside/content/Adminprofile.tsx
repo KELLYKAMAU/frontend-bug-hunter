@@ -1,5 +1,5 @@
 
-import me2 from "src/assets/me2.jpg";
+// import me2 from "src/assets/me2.jpg";
 
 export default function AdminProfile() {
     return (
@@ -18,7 +18,7 @@ export default function AdminProfile() {
                                 <div className="avatar">
                                     <div className="w-60 rounded-full">
         
-                                  <img src={me2} alt="Verified Badge" className="avatar" />
+                                  {/* <img src={me2} alt="Verified Badge" className="avatar" /> */}
                                     </div>
                                 </div>
                                 <div className="text-center">
