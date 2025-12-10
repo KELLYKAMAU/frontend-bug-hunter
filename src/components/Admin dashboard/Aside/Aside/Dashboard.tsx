@@ -76,7 +76,7 @@ export const Admindashboard = () => {
                 <div className="card bg-white shadow-lg">
                   <div className="card-body">
                     <h2 className="card-title text-orange-600">In Progress</h2>
-                    <p className="text-3xl font-bold">{stats.inProgressBugs}</p>
+                    <p className="text-3xl font-bold">{stats.in_progressBugs}</p>
                     <div className="text-sm text-gray-500">
                       Bugs currently being worked on
                     </div>
